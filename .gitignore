@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files
+.env
+.venv
+
+# VSCode or PyCharm config files
+.vscode/
+.idea/
+
+# Mac / Linux / Windows system files
+.DS_Store
+Thumbs.db
+
+# Token or cookie files
+*.txt
+*.log
+
+# Output files
+*.zip
+*.tar.gz
+*.bak
+
+# Python cache
+*.pyo
+*.pyd
