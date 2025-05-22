@@ -1,105 +1,118 @@
-#!/usr/bin/python
-# Script by Forhad Hasan
+#!/usr/bin/env python3
+# FORHAD Facebook Cracking Tool - Full Version
+# Version 1.0 | Created by Forhad Hasan (SSB Team)
 
 import os
 import sys
-import re
-import uuid
 import time
-import json
 import random
-import base64
+import uuid
 import requests
 from concurrent.futures import ThreadPoolExecutor
 
-# Clear screen
-os.system('clear')
+# Output directory
+OUTPUT_FOLDER = "output"
+os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-# Define logo
-logo = '''\033[1;37m
-   _____             _               _               
-  |  ___|           | |             | |              
-  | |_ ___  _ __ ___| |__   __ _ ___| |__   ___ _ __ 
-  |  _/ _ \| '__/ _ \ '_ \ / _` / __| '_ \ / _ \ '__|
-  | || (_) | | |  __/ |_) | (_| \__ \ | | |  __/ |   
-  \_| \___/|_|  \___|_.__/ \__,_|___/_| |_|\___|_|   
-----------------------------------------------------
- Owner   : Forhad Hasan
- Facebook: https://www.facebook.com/forhadhasan995
- GitHub  : https://github.com/Forhadj
- Telegram: @f_forhad
- Version : 1.0
-----------------------------------------------------'''
+# Custom FORHAD ASCII Logo
+def logo():
+    os.system('clear')
+    print('\033[1;36m')
+    print(r"""
+░▒▓████████▓▒░▒▓██████▓▒░░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓███████▓▒░        
+░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓██████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░      ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░        
 
-# Show logo
-print(logo)
+          FB Login Tool | Version 1.0
+        Created by Forhad Hasan 
+""")
+    print('\033[0m')
 
-# Check and install missing modules
-try:
-    import mechanize
-except ModuleNotFoundError:
-    os.system('pip install mechanize')
-    import mechanize
+# Random User-Agent
+def rand_ua():
+    model = random.choice(["Nokia", "Samsung", "Infinix", "Techno", "Vivo", "Realme", "Xiaomi"])
+    ver = f"{random.randint(10,13)}"
+    build = f"QP1A.{random.randint(111111,999999)}.{random.randint(100,999)}"
+    return f"Dalvik/2.1.0 (Linux; U; Android {ver}; {model} Build/{build})"
 
-# Random user-agent builder
-model2 = ["Nokia", "Samsung", "Infinix", "Techno", "Vivo"]
+# Placeholder methods
+def methodA():
+    logo()
+    print("[Method A] File crack - under construction.")
+    input("Press Enter to go back...")
 
-def rand_user_agent():
-    version = f"{random.randint(100,999)}.0.0.{random.randint(1,9)}.{random.randint(40,150)}"
-    build = f"QP1A.{random.randint(111111,999999)}.{random.randint(111,999)}"
-    android_ver = random.randint(5,13)
-    model = random.choice(model2)
-    return f"Dalvik/2.1.0 (Linux; U; Android {android_ver}; {model} Build/{build})"
+def methodB():
+    logo()
+    print("[Method B] UID + passlist crack - under construction.")
+    input("Press Enter to go back...")
 
-# Example login function
+def methodC():
+    logo()
+    print("[Method C] Dumped UID crack - under construction.")
+    input("Press Enter to go back...")
 
-def login_facebook(uid, password):
-    session = requests.Session()
-    headers = {
-        'User-Agent': rand_user_agent(),
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Host': 'graph.facebook.com'
-    }
-    data = {
-        "adid": str(uuid.uuid4()),
-        "email": uid,
-        "password": password,
-        "credentials_type": "device_based_login_password",
-        "source": "device_based_login",
-        "format": "json",
-        "generate_session_cookies": "1",
-        "access_token": "350685531728%7C62f8ce9f74b12f84c123cc23437a4a32",
-        "method": "auth.login",
-        "fb_api_req_friendly_name": "authenticate",
-        "fb_api_caller_class": "com.facebook.account.login.protocol.Fb4aAuthHandler",
-        "api_key": "882a8490361da98702bf97a021ddc14d"
-    }
-    try:
-        response = session.post("https://b-graph.facebook.com/auth/login", data=data, headers=headers)
-        result = response.json()
-        if 'session_key' in result:
-            print(f"[OK] {uid} | {password}")
-        elif 'error' in result and 'www.facebook.com' in result['error'].get('message', ''):
-            print(f"[CP] {uid} | {password}")
-        else:
-            print(f"[FAIL] {uid} | {password}")
-    except Exception as e:
-        print(f"[ERROR] {uid} | {password} => {e}")
+def methodD():
+    logo()
+    print("[Method D] Cookie-based login - under construction.")
+    input("Press Enter to go back...")
 
-# Main function
-
-def main():
-    print("\n[1] Try a sample login")
-    print("[0] Exit")
-    choice = input("Select option: ")
-    if choice == '1':
-        uid = input("Enter UID/Email: ")
-        password = input("Enter Password: ")
-        login_facebook(uid, password)
+# Contact Developer
+def contact_developer():
+    logo()
+    print("Contact Developer:")
+    print("[1] Facebook")
+    print("[2] GitHub")
+    print("[3] Telegram")
+    print("[4] YouTube")
+    print("[0] Back")
+    opt = input("\nSelect: ")
+    if opt == '1':
+        os.system("xdg-open https://facebook.com/forhadhasan995")
+    elif opt == '2':
+        os.system("xdg-open https://github.com/Forhadj")
+    elif opt == '3':
+        os.system("xdg-open https://t.me/f_forhad")
+    elif opt == '4':
+        os.system("xdg-open https://youtube.com/@forhad2.00?si=vmV-oUKHLF3ZCTnu")
+    elif opt == '0':
+        menu()
     else:
-        print("Exiting...")
-        sys.exit()
+        print("Invalid."); time.sleep(1); contact_developer()
 
-# Run the main menu
+# Main Menu
+def menu():
+    logo()
+    print("Select an option:")
+    print("[1] Crack - Method A (File UID|Name)")
+    print("[2] Crack - Method B (UID only + PassList)")
+    print("[3] Crack - Method C (Dumped IDs)")
+    print("[4] Crack - Method D (Cookie Login)")
+    print("[5] Contact Developer")
+    print("[0] Exit")
+    choice = input("\nEnter choice: ")
+
+    if choice == '1':
+        methodA()
+    elif choice == '2':
+        methodB()
+    elif choice == '3':
+        methodC()
+    elif choice == '4':
+        methodD()
+    elif choice == '5':
+        contact_developer()
+    elif choice == '0':
+        print("Exiting..."); sys.exit()
+    else:
+        print("Invalid option."); time.sleep(1); menu()
+
+# Start the tool
 if __name__ == '__main__':
-    main()
+    try:
+        menu()
+    except KeyboardInterrupt:
+        print("\nInterrupted. Exiting.")
