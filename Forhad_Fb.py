@@ -6,6 +6,9 @@ import os
 import sys
 import time
 import random
+import uuid
+import requests
+from concurrent.futures import ThreadPoolExecutor
 
 # Output directory
 OUTPUT_FOLDER = "output"
@@ -13,18 +16,19 @@ os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 # Custom FORHAD ASCII Logo
 def logo():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('clear')
     print('\033[1;36m')
     print(r"""
-`7MM"""YMM   .g8""8q. `7MM"""Mq.  `7MMF'  `7MMF'      db      `7MM"""Yb.
-  MM    `7 .dP'    `YM. MM   `MM.   MM      MM       ;MM:       MM    `Yb.
-  MM   d   dM'      `MM MM   ,M9    MM      MM      ,V^MM.      MM     `Mb
-  MM""MM   MM        MM MMmmdM9     MMmmmmmmMM     ,M  `MM      MM      MM
-  MM   Y   MM.      ,MP MM  YM.     MM      MM     AbmmmqMA     MM     ,MP
-  MM       `Mb.    ,dP' MM   `Mb.   MM      MM    A'     VML    MM    ,dP'
-.JMML.       `"bmmd"' .JMML. .JMM..JMML.  .JMML..AMA.   .AMMA..JMMmmmdP'
+░▒▓████████▓▒░▒▓██████▓▒░░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓███████▓▒░        
+░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░        
+░▒▓█▓▒░      ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░        
+
           FB Login Tool | Version 1.0
-        Created by Forhad Hasan
+        Created by Forhad Hasan 
 """)
     print('\033[0m')
 
@@ -102,7 +106,7 @@ def menu():
     elif choice == '5':
         contact_developer()
     elif choice == '0':
-        print("Exiting..."); time.sleep(1); sys.exit()
+        print("Exiting..."); sys.exit()
     else:
         print("Invalid option."); time.sleep(1); menu()
 
