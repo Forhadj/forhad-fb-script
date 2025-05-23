@@ -24,11 +24,23 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run the script:
+## Important Update on Running the Script
+
+> The main script filename has been updated from `forhad_script.py` to **`Forhad_Fb.py`**.
+
+Run the script using:
 
 ```bash
-python forhad_script.py
+python Forhad_Fb.py
 ```
+
+If `python` doesn't work, try:
+
+```bash
+python3 Forhad_Fb.py
+```
+
+---
 
 ## Usage by Platform
 
@@ -40,7 +52,7 @@ pkg install python git -y
 git clone https://github.com/Forhadj/forhad-fb-script.git
 cd forhad-fb-script
 pip install -r requirements.txt
-python forhad_script.py
+python Forhad_Fb.py
 ```
 
 ### Windows (Command Prompt / PowerShell)
@@ -49,10 +61,8 @@ python forhad_script.py
 git clone https://github.com/Forhadj/forhad-fb-script.git
 cd forhad-fb-script
 pip install -r requirements.txt
-python forhad_script.py
+python Forhad_Fb.py
 ```
-
-> If `git` is not installed, download the ZIP from GitHub, extract, then follow the rest.
 
 ### Linux / macOS
 
@@ -61,8 +71,10 @@ sudo apt update && sudo apt install python3 git -y
 git clone https://github.com/Forhadj/forhad-fb-script.git
 cd forhad-fb-script
 pip3 install -r requirements.txt
-python3 forhad_script.py
+python3 Forhad_Fb.py
 ```
+
+---
 
 ## Tags / Topics
 
@@ -77,7 +89,7 @@ python3 forhad_script.py
 
 * **Facebook**: [Forhad Hasan](https://www.facebook.com/forhadhasan995)
 * **GitHub**: [Forhadj](https://github.com/Forhadj)
-* **Telegram**: [@f\_forhad](https://t.me/f_forhad)
+* **Telegram**: [@f_forhad](https://t.me/f_forhad)
 
 ## Disclaimer
 
