@@ -6,9 +6,6 @@ import os
 import sys
 import time
 import random
-import uuid
-import requests
-from concurrent.futures import ThreadPoolExecutor
 
 # Output directory
 OUTPUT_FOLDER = "output"
@@ -16,7 +13,7 @@ os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 # Custom FORHAD ASCII Logo
 def logo():
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print('\033[1;36m')
     print(r"""
 `7MM"""YMM   .g8""8q. `7MM"""Mq.  `7MMF'  `7MMF'      db      `7MM"""Yb.
@@ -105,7 +102,7 @@ def menu():
     elif choice == '5':
         contact_developer()
     elif choice == '0':
-        print("Exiting..."); sys.exit()
+        print("Exiting..."); time.sleep(1); sys.exit()
     else:
         print("Invalid option."); time.sleep(1); menu()
 
