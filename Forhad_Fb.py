@@ -8,24 +8,16 @@ import time
 import random
 import uuid
 import requests
-from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 
 # Output directory
 OUTPUT_FOLDER = "output"
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-# Random User-Agent Generator
-def rand_ua():
-    model = random.choice(["Nokia", "Samsung", "Infinix", "Techno", "Vivo", "Realme", "Xiaomi"])
-    ver = f"{random.randint(10,13)}"
-    build = f"QP1A.{random.randint(111111,999999)}.{random.randint(100,999)}"
-    return f"Dalvik/2.1.0 (Linux; U; Android {ver}; {model} Build/{build})"
-
-# Custom Logo & Info Display
+# Custom FORHAD ASCII Logo
 def logo():
-    os.system('clear' if os.name == 'posix' else 'cls')
-    print('\033[1;36m')  # Cyan color
+    os.system('clear')
+    print('\033[1;36m')
     print(r"""
 `7MM"""YMM   .g8""8q. `7MM"""Mq.  `7MMF'  `7MMF'      db      `7MM"""Yb.       
   MM    `7 .dP'    `YM. MM   `MM.   MM      MM       ;MM:       MM    `Yb.     
@@ -33,29 +25,33 @@ def logo():
   MM""MM   MM        MM MMmmdM9     MMmmmmmmMM     ,M  `MM      MM      MM     
   MM   Y   MM.      ,MP MM  YM.     MM      MM     AbmmmqMA     MM     ,MP     
   MM       `Mb.    ,dP' MM   `Mb.   MM      MM    A'     VML    MM    ,dP'     
-.JMML.       `"bmmd"' .JMML. .JMM..JMML.  .JMML..AMA.   .AMMA..JMMmmmdP'        
-    """)
-    print('\033[1;33m')  # Yellow
-    print(f"         FB Login Tool | Version 1.0")
-    print(f"         Created by Forhad Hasan ")
-    print(f"         Date     : {datetime.now().strftime('%d-%b-%Y')}")
-    print(f"         UA       : {rand_ua()}")
-    print('\033[0m')  # Reset color
+.JMML.
+          FB Login Tool | Version 1.0
+        Created by Forhad Hasan 
+""")
+    print('\033[0m')
 
-# Placeholder Methods
+# Random User-Agent
+def rand_ua():
+    model = random.choice(["Nokia", "Samsung", "Infinix", "Techno", "Vivo", "Realme", "Xiaomi"])
+    ver = f"{random.randint(10,13)}"
+    build = f"QP1A.{random.randint(111111,999999)}.{random.randint(100,999)}"
+    return f"Dalvik/2.1.0 (Linux; U; Android {ver}; {model} Build/{build})"
+
+# Placeholder methods
 def methodA():
     logo()
-    print("[Method A] File UID|Name crack - under construction.")
+    print("[Method A] File crack - under construction.")
     input("Press Enter to go back...")
 
 def methodB():
     logo()
-    print("[Method B] UID only + Passlist crack - under construction.")
+    print("[Method B] UID + passlist crack - under construction.")
     input("Press Enter to go back...")
 
 def methodC():
     logo()
-    print("[Method C] Dumped ID crack - under construction.")
+    print("[Method C] Dumped UID crack - under construction.")
     input("Press Enter to go back...")
 
 def methodD():
@@ -113,9 +109,9 @@ def menu():
     else:
         print("Invalid option."); time.sleep(1); menu()
 
-# Start Tool
+# Start the tool
 if __name__ == '__main__':
     try:
         menu()
     except KeyboardInterrupt:
-        print("\nInterrupted. Exiting...")
+        print("\nInterrupted. Exiting.")
