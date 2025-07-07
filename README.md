@@ -75,7 +75,7 @@ python3 Forhad_Fb.py
 ```
 
 ---
-https://github.com/Forhadj/forhad-fb-script/blob/main/IMG_20250707_113954.jpg
+
 ## Tags / Topics
 
 * facebook
