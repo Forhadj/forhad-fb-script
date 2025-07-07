@@ -4,10 +4,14 @@ A Python-based tool to simulate Facebook device-based login using random user-ag
 
 ## Features
 
-* Device-based login simulation
-* Random user-agent generation
-* Clean terminal UI with basic menu
-* Colorful branding and banner display
+* Device-based login simulation  
+* Random user-agent generation  
+* Clean terminal UI with basic menu  
+* Colorful branding and banner display  
+
+## Screenshot
+
+![forhad-fb-script screenshot](https://github.com/Forhadj/forhad-fb-script/raw/main/IMG_20250707_113954.jpg)
 
 ## Installation
 
@@ -78,18 +82,18 @@ python3 Forhad_Fb.py
 
 ## Tags / Topics
 
-* facebook
-* login-tool
-* device-login
-* python-script
-* forhad
-* educational
+* facebook  
+* login-tool  
+* device-login  
+* python-script  
+* forhad  
+* educational  
 
 ## Contact Me
 
-* **Facebook**: [Forhad Hasan](https://www.facebook.com/forhadhasan995)
-* **GitHub**: [Forhadj](https://github.com/Forhadj)
-* **Telegram**: [@f_forhad](https://t.me/f_forhad)
+* **Facebook**: [Forhad Hasan](https://www.facebook.com/forhadhasan995)  
+* **GitHub**: [Forhadj](https://github.com/Forhadj)  
+* **Telegram**: [@f_forhad](https://t.me/f_forhad)  
 
 ## Disclaimer
 
